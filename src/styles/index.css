@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #ffffff;
+  background-color: #151515;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+h1, h2, h3, h4 {
+  margin-bottom: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+img {
+  max-width: 100%;
+}
+
+.section-title {
+  font-size: 36px;
+  position: relative;
+  margin-bottom: 35px;
+  font-weight: 700;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 60px;
+  height: 3px;
+  background-color: #ff0059;
+}
+
+.about-text {
+  color: #cccccc;
+  margin-bottom: 25px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.primary-btn {
+  background-color: #ff0059;
+  color: white;
+  padding: 15px 35px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-block;
+  margin-right: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 0, 89, 0.3);
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background-color: #d80048;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 0, 89, 0.4);
+}
+
+.secondary-btn {
+  border: 2px solid #ff0059;
+  color: white;
+  padding: 13px 35px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 16px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.secondary-btn:hover {
+  background-color: #ff0059;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 0, 89, 0.3);
+}
+
+@media screen and (max-width: 991px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  section {
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .primary-btn, .secondary-btn {
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+  }
+}

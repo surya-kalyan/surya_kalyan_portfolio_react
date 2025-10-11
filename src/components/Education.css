@@ -1,0 +1,27 @@
+.education-card {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-left: 4px solid #ff0059;
+  transition: all 0.3s ease;
+}
+
+.education-period {
+  display: inline-block;
+  background-color: rgba(255, 0, 89, 0.1);
+  color: #ff0059;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.education-degree {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.education-school {
+  color: #bbbbbb;
+}
