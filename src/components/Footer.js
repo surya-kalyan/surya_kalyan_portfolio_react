@@ -1,15 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import SocialIcons from './SocialIcons';
 import './Footer.css';
 
 const Footer = () => {
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
 
   const socialLinks = [
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/surya-kalyan-b-dsa', icon: '/image/linkedin.png' },
-    { name: 'GitHub', url: 'https://github.com/surya-kalyan', icon: '/image/github logo.png' },
-    { name: 'Instagram', url: 'https://www.instagram.com/suryaa__kalyan/', icon: '/image/instagram logo.jpeg' }
+    { 
+      name: 'LinkedIn', 
+      url: 'https://www.linkedin.com/in/surya-kalyan-b-dsa', 
+      icon: '/image/linkedin.png',
+      fallbackIcon: '💼',
+      color: '#0077B5'
+    },
+    { 
+      name: 'GitHub', 
+      url: 'https://github.com/surya-kalyan', 
+      icon: '/image/github logo.png',
+      fallbackIcon: '🐙',
+      color: '#333'
+    },
+    { 
+      name: 'Instagram', 
+      url: 'https://www.instagram.com/suryaa__kalyan/', 
+      icon: '/image/instagram-new.png',
+      fallbackIcon: '📷',
+      color: '#E4405F'
+    }
   ];
 
   const containerVariants = {
@@ -47,31 +66,48 @@ const Footer = () => {
               <motion.a 
                 key={index}
                 href={social.url} 
-                className="social-link" 
+                className={`social-link social-link-${social.name.toLowerCase()}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                title={`Visit my ${social.name} profile`}
+                aria-label={`Visit my ${social.name} profile`}
                 whileHover={{ 
-                  backgroundColor: "#ff0059",
+                  backgroundColor: social.color,
                   y: -8,
-                  scale: 1.2,
-                  rotate: 360,
-                  boxShadow: "0 10px 25px rgba(255, 0, 89, 0.4)"
+                  scale: 1.15,
+                  rotate: [0, -5, 5, 0],
+                  boxShadow: `0 15px 30px ${social.color}60`,
+                  borderColor: social.color
                 }}
-                whileTap={{ scale: 0.9 }}
+                whileTap={{ scale: 0.95 }}
                 animate={{
                   y: [0, -2, 0],
                 }}
                 transition={{ 
-                  hover: { duration: 0.6 },
+                  hover: { duration: 0.4, ease: "easeOut" },
                   y: {
-                    duration: 2,
+                    duration: 3,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: index * 0.2
+                    delay: index * 0.3
                   }
                 }}
               >
-                <img src={social.icon} alt={social.name} />
+                <div className="social-icon-container">
+                  <img 
+                    src={social.icon} 
+                    alt={social.name}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="svg-fallback" style={{ display: 'none' }}>
+                    {social.name === 'LinkedIn' && <SocialIcons.LinkedIn size={24} color="#ffffff" />}
+                    {social.name === 'GitHub' && <SocialIcons.GitHub size={24} color="#ffffff" />}
+                    {social.name === 'Instagram' && <SocialIcons.Instagram size={24} color="#ffffff" />}
+                  </div>
+                </div>
               </motion.a>
             ))}
           </motion.div>
