@@ -1,5 +1,6 @@
 .education-card {
-  background-color: #1a1a1a;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
   border-radius: 8px;
   padding: 30px;
   margin-bottom: 30px;

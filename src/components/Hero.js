@@ -56,16 +56,16 @@ const Hero = () => {
               Hi, I'm <span>Surya Kalyan B</span><br />
               <TypingAnimation 
                 texts={['AI Developer', 'Data analyst']}
-                speed={150}
-                deleteSpeed={100}
-                pauseTime={2000}
+                speed={50}
+                deleteSpeed={30}
+                pauseTime={1500}
               />
             </motion.h1>
             <motion.p 
               className="hero-description"
               variants={itemVariants}
             >
-              Friendly and engaging Data Science professional with expertise in machine learning, 
+              An enthusiastic and engaging Data Science fresher with expertise in machine learning, 
               statistical analysis, and data visualization. Proven ability to lead teams and deliver 
               high-impact AI solutions with strong problem-solving capabilities.
             </motion.p>

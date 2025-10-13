@@ -84,7 +84,7 @@ const About = () => {
               className="about-text"
               variants={itemVariants}
             >
-              I am a Data Science professional from Tamil Nadu, India, specializing in AI development, 
+              I am a Data Science student from Tamil Nadu, India, specializing in AI development, 
               machine learning, and data visualization. Currently pursuing B.Sc. Computer Science with 
               specialization in Data Science & Analytics.
             </motion.p>

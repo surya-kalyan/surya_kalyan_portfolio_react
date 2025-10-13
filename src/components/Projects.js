@@ -24,7 +24,7 @@ const Projects = () => {
       linkText: 'View on GitHub'
     },
     {
-      title: 'EvalAI – AI Answer Evaluation System',
+      title: 'EvalAI',
       tag: 'NLP System',
       description: 'Intelligent NLP-powered evaluation system that automatically assesses student answers using semantic similarity, keyword coverage, and clarity metrics. Features multi-format support (JSON, Word, text), real-time analysis with Sentence Transformers, automated PDF report generation, and a modern web interface with comprehensive performance analytics.',
       tech: ['NLP', 'Sentence Transformers', 'Flask', 'NLTK', 'ReportLab'],
@@ -48,12 +48,12 @@ const Projects = () => {
       linkText: 'View on GitHub'
     },
     {
-      title: 'NeuroNote – AI-Powered Meeting Insight Generator',
+      title: 'NeuroNote',
       tag: 'AI Insight',
       description: 'NeuroNote is an intelligent Flask-based web application that transcribes recorded meeting audio and generates structured insights using Google\'s Gemini API. It leverages OpenAI\'s Whisper model for accurate speech-to-text transcription and prompts Gemini to extract key meeting details, including summaries, action items, sentiment analysis, decisions, participant estimates, and follow-up topics.',
       tech: ['Flask', 'OpenAI Whisper', 'Google Gemini', 'REST API'],
-      link: '#',
-      linkText: 'Private Project'
+      link: 'https://github.com/surya-kalyan/neuro_note',
+      linkText: 'View on GitHub'
     }
   ];
 

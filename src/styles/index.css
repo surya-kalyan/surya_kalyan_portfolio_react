@@ -8,8 +8,56 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #ffffff;
-  background-color: #151515;
+  background: radial-gradient(ellipse at center, #0d1421 0%, #0c0c0c 50%, #000000 100%);
+  background-attachment: fixed;
   scroll-behavior: smooth;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Realistic starfield */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 25px 5px, white, transparent),
+    radial-gradient(1px 1px at 50px 25px, white, transparent),
+    radial-gradient(1px 1px at 125px 20px, white, transparent),
+    radial-gradient(1px 1px at 150px 75px, white, transparent),
+    radial-gradient(2px 2px at 90px 10px, white, transparent),
+    radial-gradient(1px 1px at 175px 40px, white, transparent),
+    radial-gradient(1px 1px at 10px 60px, white, transparent),
+    radial-gradient(2px 2px at 200px 90px, white, transparent);
+  background-repeat: repeat;
+  background-size: 250px 150px;
+  animation: twinkle 3s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* Nebula effect */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(255, 119, 198, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 80%, rgba(120, 219, 255, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
 }
 
 .container {
@@ -21,6 +69,7 @@ body {
 
 section {
   padding: 80px 0;
+  background: transparent;
 }
 
 h1, h2, h3, h4 {
@@ -61,7 +110,7 @@ img {
 }
 
 .primary-btn {
-  background-color: #ff0059;
+  background: linear-gradient(45deg, #ff0059, #ff6b9d);
   color: white;
   padding: 15px 35px;
   border-radius: 8px;
@@ -120,10 +169,70 @@ img {
   }
 }
 
+.cursor {
+  animation: blink 1s infinite;
+  color: #ff0059;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Realistic space elements */
+.space-element {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.planet-1 {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 25% 25%, #8B4513, #654321, #2F1B14);
+  top: 15%;
+  right: 8%;
+  animation: orbit 60s linear infinite;
+  opacity: 0.6;
+  box-shadow: inset -10px -10px 0 rgba(0,0,0,0.3);
+}
+
+.planet-2 {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #4169E1, #191970, #000080);
+  bottom: 25%;
+  left: 10%;
+  animation: orbit 45s linear infinite reverse;
+  opacity: 0.5;
+  box-shadow: inset -8px -8px 0 rgba(0,0,0,0.4);
+}
+
+.planet-3 {
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle at 35% 35%, #FFD700, #FFA500, #FF8C00);
+  top: 60%;
+  right: 25%;
+  animation: orbit 30s linear infinite;
+  opacity: 0.4;
+  box-shadow: inset -5px -5px 0 rgba(0,0,0,0.2);
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(20px) rotate(-360deg); }
+}
+
 @media screen and (max-width: 768px) {
   .primary-btn, .secondary-btn {
     display: block;
     margin: 10px 0;
     text-align: center;
+  }
+  
+  .planet-1, .planet-2 {
+    display: none;
   }
 }

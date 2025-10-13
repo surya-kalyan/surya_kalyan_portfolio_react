@@ -1,5 +1,5 @@
 .projects {
-  background-color: #1a1a1a;
+  background: transparent;
 }
 
 .projects-grid {
@@ -10,7 +10,8 @@
 }
 
 .project-card {
-  background-color: #2a2a2a;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;

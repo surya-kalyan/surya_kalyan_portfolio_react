@@ -13,6 +13,9 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="App">
+      <div className="space-element planet-1"></div>
+      <div className="space-element planet-2"></div>
+      <div className="space-element planet-3"></div>
       <Header />
       <Hero />
       <About />
