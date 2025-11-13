@@ -34,4 +34,38 @@
   .about-image {
     margin-bottom: 40px;
   }
+  
+  .about-image img {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-container {
+    gap: 30px;
+  }
+  
+  .about-image {
+    margin-bottom: 30px;
+  }
+  
+  .about-image img {
+    height: 300px;
+    border-radius: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-container {
+    gap: 25px;
+  }
+  
+  .about-image {
+    margin-bottom: 25px;
+  }
+  
+  .about-image img {
+    height: 250px;
+    border-radius: 6px;
+  }
 }

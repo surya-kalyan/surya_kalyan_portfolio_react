@@ -26,3 +26,43 @@
 .education-school {
   color: #bbbbbb;
 }
+
+@media screen and (max-width: 768px) {
+  .education-card {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .education-period {
+    font-size: 12px;
+    padding: 4px 12px;
+  }
+  
+  .education-degree {
+    font-size: 18px;
+  }
+  
+  .education-school {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .education-card {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .education-period {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+  
+  .education-degree {
+    font-size: 16px;
+  }
+  
+  .education-school {
+    font-size: 13px;
+  }
+}

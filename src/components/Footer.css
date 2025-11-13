@@ -153,9 +153,25 @@ footer::before {
   animation: pulse 1.5s infinite;
 }
 
+@media screen and (max-width: 991px) {
+  footer {
+    padding: 40px 0 25px;
+  }
+  
+  .social-links {
+    gap: 22px;
+    margin-bottom: 20px;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  footer {
+    padding: 35px 0 20px;
+  }
+  
   .social-links {
     gap: 20px;
+    margin-bottom: 18px;
   }
   
   .social-link {
@@ -171,11 +187,20 @@ footer::before {
   .fallback-icon {
     font-size: 18px;
   }
+  
+  .footer-text {
+    font-size: 13px;
+  }
 }
 
 @media screen and (max-width: 480px) {
+  footer {
+    padding: 30px 0 15px;
+  }
+  
   .social-links {
     gap: 15px;
+    margin-bottom: 15px;
   }
   
   .social-link {
@@ -186,6 +211,15 @@ footer::before {
   .social-link img {
     width: 20px;
     height: 20px;
+  }
+  
+  .fallback-icon {
+    font-size: 16px;
+  }
+  
+  .footer-text {
+    font-size: 12px;
+    padding: 0 10px;
   }
 }
 
