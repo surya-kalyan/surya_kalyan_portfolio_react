@@ -10,6 +10,34 @@
   display: block;
 }
 
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.gallery-close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.gallery-close-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: white;
+  transform: scale(1.1);
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -217,6 +245,12 @@
     height: 40px;
     font-size: 24px;
   }
+
+  .gallery-close-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -238,6 +272,12 @@
   }
 
   .close-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+
+  .gallery-close-btn {
     width: 35px;
     height: 35px;
     font-size: 20px;

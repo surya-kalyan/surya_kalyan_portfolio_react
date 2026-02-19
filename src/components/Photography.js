@@ -39,6 +39,14 @@ const Photography = () => {
     }
   }, [inView]);
 
+  const closeGallery = () => {
+    setShowGallery(false);
+    const element = document.getElementById('photography');
+    if (element) {
+      element.classList.remove('show');
+    }
+  };
+
   const openPhoto = (photo, index) => {
     setSelectedPhoto(photo);
     setCurrentIndex(index);
@@ -86,14 +94,17 @@ const Photography = () => {
   return (
     <section id="photography" className={`photography ${showGallery ? 'show' : ''}`} ref={ref}>
       <div className="container">
-        <motion.h2 
-          className="section-title"
-          initial={{ opacity: 0, y: 20 }}
-          animate={showGallery ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-        >
-          Photography Gallery
-        </motion.h2>
+        <div className="gallery-header">
+          <motion.h2 
+            className="section-title"
+            initial={{ opacity: 0, y: 20 }}
+            animate={showGallery ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6 }}
+          >
+            Photography Gallery
+          </motion.h2>
+          <button className="gallery-close-btn" onClick={closeGallery}>×</button>
+        </div>
         <motion.p 
           className="about-text"
           initial={{ opacity: 0, y: 20 }}
