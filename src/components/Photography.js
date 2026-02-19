@@ -8,12 +8,16 @@ const Photography = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const photos = [
-    { id: 1, title: 'Portrait', image: '/photography/photo1.jpg', category: 'Portrait' },
-    { id: 2, title: 'Landscape', image: '/photography/photo2.jpg', category: 'Landscape' },
-    { id: 3, title: 'Event', image: '/photography/photo3.jpg', category: 'Event' },
-    { id: 4, title: 'Nature', image: '/photography/photo4.jpg', category: 'Nature' },
-    { id: 5, title: 'Street', image: '/photography/photo5.jpg', category: 'Street' },
-    { id: 6, title: 'Architecture', image: '/photography/photo6.jpg', category: 'Architecture' },
+    { id: 1, title: 'Portrait', image: '/photography/photo_1.jpg', category: 'Portrait' },
+    { id: 2, title: 'Landscape', image: '/photography/photo_2.jpg', category: 'Landscape' },
+    { id: 3, title: 'Nature', image: '/photography/photo_3.jpg', category: 'Nature' },
+    { id: 4, title: 'Architecture', image: '/photography/photo_4.jpg', category: 'Architecture' },
+    { id: 5, title: 'Moment', image: '/photography/20250907_155832.jpg', category: 'Candid' },
+    { id: 6, title: 'Scene', image: '/photography/20250907_164053.jpg', category: 'Scene' },
+    { id: 7, title: 'Sunset', image: '/photography/20250919_064806.jpg', category: 'Landscape' },
+    { id: 8, title: 'Detail', image: '/photography/20250919_064818.jpg', category: 'Detail' },
+    { id: 9, title: 'Perspective', image: '/photography/20250919_085329.jpg', category: 'Perspective' },
+    { id: 10, title: 'Golden Hour', image: '/photography/20251120_135913.jpg', category: 'Golden Hour' },
   ];
 
   const containerVariants = {
