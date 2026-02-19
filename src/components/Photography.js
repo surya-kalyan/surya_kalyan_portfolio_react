@@ -16,9 +16,8 @@ const Photography = () => {
     { id: 5, title: 'Moment', media: '/photography/20250907_155832.jpg', type: 'image', category: 'Candid' },
     { id: 6, title: 'Scene', media: '/photography/20250907_164053.jpg', type: 'image', category: 'Scene' },
     { id: 7, title: 'Sunset', media: '/photography/20250919_064806.jpg', type: 'image', category: 'Landscape' },
-    { id: 8, title: 'Detail', media: '/photography/20250919_064818.jpg', type: 'image', category: 'Detail' },
-    { id: 9, title: 'Perspective', media: '/photography/20250919_085329.jpg', type: 'image', category: 'Perspective' },
-    { id: 10, title: 'Golden Hour', media: '/photography/20251120_135913.jpg', type: 'image', category: 'Golden Hour' },
+    { id: 8, title: 'Perspective', media: '/photography/20250919_085329.jpg', type: 'image', category: 'Perspective' },
+    { id: 9, title: 'Golden Hour', media: '/photography/20251120_135913.jpg', type: 'image', category: 'Golden Hour' },
   ];
 
   useEffect(() => {

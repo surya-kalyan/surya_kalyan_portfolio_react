@@ -178,6 +178,12 @@
   padding: 15px 25px;
   border-radius: 10px;
   backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-content:hover .photo-info {
+  opacity: 1;
 }
 
 .photo-info h3 {
