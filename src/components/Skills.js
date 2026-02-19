@@ -9,6 +9,7 @@ const Skills = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
+      element.classList.add('show');
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
