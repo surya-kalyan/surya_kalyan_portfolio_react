@@ -175,3 +175,29 @@
     line-height: 1.7;
   }
 }
+
+
+.view-photos-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #ff1744, #ff5252);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 23, 68, 0.3);
+}
+
+.view-photos-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 23, 68, 0.5);
+  background: linear-gradient(135deg, #ff5252, #ff1744);
+}
+
+.view-photos-btn:active {
+  transform: translateY(0);
+}

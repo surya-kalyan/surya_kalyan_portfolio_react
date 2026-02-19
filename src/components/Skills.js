@@ -86,6 +86,17 @@ const Skills = () => {
       title: 'Soft Skills', 
       list: 'Team Leadership, Communication, Problem Solving',
       color: '#e91e63'
+    },
+    { 
+      icon: (
+        <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+          <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+        </svg>
+      ), 
+      title: 'Photography', 
+      list: 'Portrait, Landscape, Event Photography',
+      color: '#ff1744',
+      hasButton: true
     }
   ];
 
@@ -193,6 +204,19 @@ const Skills = () => {
                   >
                     {skill.list}
                   </motion.p>
+                  {skill.hasButton && (
+                    <motion.a
+                      href="https://www.instagram.com/surya_kalyan_photography/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="view-photos-btn"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      style={{ marginTop: '12px', display: 'inline-block' }}
+                    >
+                      View Photos
+                    </motion.a>
+                  )}
                 </motion.div>
               ))}
             </div>
