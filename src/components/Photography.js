@@ -9,16 +9,16 @@ const Photography = () => {
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const photos = [
-    { id: 1, title: 'Portrait', image: '/photography/photo_1.jpg', category: 'Portrait' },
-    { id: 2, title: 'Landscape', image: '/photography/photo_2.jpg', category: 'Landscape' },
-    { id: 3, title: 'Nature', image: '/photography/photo_3.jpg', category: 'Nature' },
-    { id: 4, title: 'Architecture', image: '/photography/photo_4.jpg', category: 'Architecture' },
-    { id: 5, title: 'Moment', image: '/photography/20250907_155832.jpg', category: 'Candid' },
-    { id: 6, title: 'Scene', image: '/photography/20250907_164053.jpg', category: 'Scene' },
-    { id: 7, title: 'Sunset', image: '/photography/20250919_064806.jpg', category: 'Landscape' },
-    { id: 8, title: 'Detail', image: '/photography/20250919_064818.jpg', category: 'Detail' },
-    { id: 9, title: 'Perspective', image: '/photography/20250919_085329.jpg', category: 'Perspective' },
-    { id: 10, title: 'Golden Hour', image: '/photography/20251120_135913.jpg', category: 'Golden Hour' },
+    { id: 1, title: 'Portrait', media: '/photography/photo_1.jpg', type: 'image', category: 'Portrait' },
+    { id: 2, title: 'Landscape', media: '/photography/photo_2.jpg', type: 'image', category: 'Landscape' },
+    { id: 3, title: 'Nature', media: '/photography/photo_3.jpg', type: 'image', category: 'Nature' },
+    { id: 4, title: 'Architecture', media: '/photography/photo_4.jpg', type: 'image', category: 'Architecture' },
+    { id: 5, title: 'Moment', media: '/photography/20250907_155832.jpg', type: 'image', category: 'Candid' },
+    { id: 6, title: 'Scene', media: '/photography/20250907_164053.jpg', type: 'image', category: 'Scene' },
+    { id: 7, title: 'Sunset', media: '/photography/20250919_064806.jpg', type: 'image', category: 'Landscape' },
+    { id: 8, title: 'Detail', media: '/photography/20250919_064818.jpg', type: 'image', category: 'Detail' },
+    { id: 9, title: 'Perspective', media: '/photography/20250919_085329.jpg', type: 'image', category: 'Perspective' },
+    { id: 10, title: 'Golden Hour', media: '/photography/20251120_135913.jpg', type: 'image', category: 'Golden Hour' },
   ];
 
   useEffect(() => {
@@ -47,6 +47,13 @@ const Photography = () => {
     const prevIndex = (currentIndex - 1 + photos.length) % photos.length;
     setSelectedPhoto(photos[prevIndex]);
     setCurrentIndex(prevIndex);
+  };
+
+  const getMediaThumbnail = (photo) => {
+    if (photo.type === 'video') {
+      return photo.media.replace(/\.[^/.]+$/, '.jpg');
+    }
+    return photo.media;
   };
 
   const containerVariants = {
@@ -86,7 +93,7 @@ const Photography = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          A collection of my photography work across various genres.
+          A collection of my photography and videography work across various genres.
         </motion.p>
 
         <motion.div 
@@ -103,7 +110,8 @@ const Photography = () => {
               whileHover={{ scale: 1.05 }}
               onClick={() => openPhoto(photo, index)}
             >
-              <img src={photo.image} alt={photo.title} />
+              <img src={getMediaThumbnail(photo)} alt={photo.title} />
+              {photo.type === 'video' && <div className="video-badge">▶</div>}
               <div className="photo-overlay">
                 <h3>{photo.title}</h3>
                 <p>{photo.category}</p>
@@ -125,7 +133,14 @@ const Photography = () => {
               animate={{ scale: 1 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <img src={selectedPhoto.image} alt={selectedPhoto.title} />
+              {selectedPhoto.type === 'image' ? (
+                <img src={selectedPhoto.media} alt={selectedPhoto.title} />
+              ) : (
+                <video controls autoPlay className="lightbox-video">
+                  <source src={selectedPhoto.media} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              )}
               <button className="close-btn" onClick={() => setSelectedPhoto(null)}>×</button>
               <button className="nav-btn prev-btn" onClick={handlePrev}>❮</button>
               <button className="nav-btn next-btn" onClick={handleNext}>❯</button>

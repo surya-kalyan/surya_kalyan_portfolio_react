@@ -32,6 +32,17 @@
   transform: scale(1.1);
 }
 
+.video-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
 .photo-overlay {
   position: absolute;
   top: 0;
@@ -87,12 +98,17 @@
   flex-direction: column;
 }
 
-.lightbox-content img {
+.lightbox-content img,
+.lightbox-video {
   max-width: 90%;
   max-height: 80%;
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-video {
+  background: #000;
 }
 
 .close-btn {
@@ -213,7 +229,8 @@
     gap: 15px;
   }
 
-  .lightbox-content img {
+  .lightbox-content img,
+  .lightbox-video {
     max-width: 95%;
     max-height: 70%;
   }
