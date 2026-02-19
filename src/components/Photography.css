@@ -3,6 +3,11 @@
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
   position: relative;
   overflow: hidden;
+  display: none;
+}
+
+.photography.show {
+  display: block;
 }
 
 .gallery-grid {

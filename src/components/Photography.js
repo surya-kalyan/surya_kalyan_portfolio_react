@@ -4,9 +4,10 @@ import { useInView } from 'react-intersection-observer';
 import './Photography.css';
 
 const Photography = () => {
-  const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
+  const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: false });
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [showGallery, setShowGallery] = useState(false);
 
   const photos = [
     { id: 1, title: 'Portrait', media: '/photography/photo_1.jpg', type: 'image', category: 'Portrait' },
@@ -16,8 +17,9 @@ const Photography = () => {
     { id: 5, title: 'Moment', media: '/photography/20250907_155832.jpg', type: 'image', category: 'Candid' },
     { id: 6, title: 'Scene', media: '/photography/20250907_164053.jpg', type: 'image', category: 'Scene' },
     { id: 7, title: 'Sunset', media: '/photography/20250919_064806.jpg', type: 'image', category: 'Landscape' },
-    { id: 8, title: 'Perspective', media: '/photography/20250919_085329.jpg', type: 'image', category: 'Perspective' },
-    { id: 9, title: 'Golden Hour', media: '/photography/20251120_135913.jpg', type: 'image', category: 'Golden Hour' },
+    { id: 8, title: 'Detail', media: '/photography/20250919_064818.jpg', type: 'image', category: 'Detail' },
+    { id: 9, title: 'Perspective', media: '/photography/20250919_085329.jpg', type: 'image', category: 'Perspective' },
+    { id: 10, title: 'Golden Hour', media: '/photography/20251120_135913.jpg', type: 'image', category: 'Golden Hour' },
   ];
 
   useEffect(() => {
@@ -30,6 +32,12 @@ const Photography = () => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedPhoto, currentIndex]);
+
+  useEffect(() => {
+    if (inView) {
+      setShowGallery(true);
+    }
+  }, [inView]);
 
   const openPhoto = (photo, index) => {
     setSelectedPhoto(photo);
@@ -76,12 +84,12 @@ const Photography = () => {
   };
 
   return (
-    <section id="photography" className="photography" ref={ref}>
+    <section id="photography" className={`photography ${showGallery ? 'show' : ''}`} ref={ref}>
       <div className="container">
         <motion.h2 
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          animate={showGallery ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
           Photography Gallery
@@ -89,7 +97,7 @@ const Photography = () => {
         <motion.p 
           className="about-text"
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          animate={showGallery ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           A collection of my photography and videography work across various genres.
@@ -99,7 +107,7 @@ const Photography = () => {
           className="gallery-grid"
           variants={containerVariants}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={showGallery ? "visible" : "hidden"}
         >
           {photos.map((photo, index) => (
             <motion.div
@@ -143,11 +151,6 @@ const Photography = () => {
               <button className="close-btn" onClick={() => setSelectedPhoto(null)}>×</button>
               <button className="nav-btn prev-btn" onClick={handlePrev}>❮</button>
               <button className="nav-btn next-btn" onClick={handleNext}>❯</button>
-              <div className="photo-info">
-                <h3>{selectedPhoto.title}</h3>
-                <p>{selectedPhoto.category}</p>
-                <span className="photo-counter">{currentIndex + 1} / {photos.length}</span>
-              </div>
             </motion.div>
           </motion.div>
         )}
