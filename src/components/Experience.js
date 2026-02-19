@@ -59,6 +59,25 @@ const Experience = () => {
               <li>Gained hands-on experience in low-code/no-code AI development platforms and enterprise chatbot deployment</li>
             </ul>
           </motion.div>
+
+          <motion.div 
+            className="experience-card"
+            variants={cardVariants}
+            whileHover={{ 
+              scale: 1.02,
+              boxShadow: "0 10px 30px rgba(255, 0, 89, 0.2)"
+            }}
+          >
+            <span className="experience-period">November 2025 - February 2026</span>
+            <h3 className="experience-role">AI and Data Visualization Intern</h3>
+            <p className="experience-company">Titan Company Limited, Bengaluru, Karnataka</p>
+            <ul className="experience-list">
+              <li>Developed image upscaling model with machine learning</li>
+              <li>Worked on n8n RAG chatbot for customer review sentiment analysis</li>
+              <li>Developed a model for Excel file automation to pre-process data using machine learning</li>
+              <li>Worked on data visualization with Microsoft PowerBI to visualize company data</li>
+            </ul>
+          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -82,7 +82,7 @@ const Hero = () => {
                 View My Work
               </motion.button>
               <motion.a 
-                href="https://drive.google.com/file/d/1R3XXVNVeviWJrIBgQ_XG_ut1iEm8_jNo/view?usp=sharing"
+                href="https://drive.google.com/file/d/14uirXlrFYa6EAoyiK-a7mn3y2vAjbey1/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="primary-btn"
@@ -107,7 +107,7 @@ const Hero = () => {
             variants={itemVariants}
           >
             <motion.img 
-              src="/image/surya pfp.jpg" 
+              src="/image/hero_img.jpg" 
               alt="Surya Kalyan B"
               whileHover={{ 
                 scale: 1.1,
@@ -117,6 +117,7 @@ const Hero = () => {
               animate={{
                 y: [0, -10, 0],
               }}
+              
               transition={{
                 y: {
                   duration: 3,

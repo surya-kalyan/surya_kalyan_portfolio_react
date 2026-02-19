@@ -107,7 +107,7 @@ const Hero = () => {
             variants={itemVariants}
           >
             <motion.img 
-              src="/image/surya pfp.jpg" 
+              src="C:\Users\Admin\Desktop\projects\surya_kalyan_portfolio_react-main\image\hero_img.jpg" 
               alt="Surya Kalyan B"
               whileHover={{ 
                 scale: 1.1,
@@ -117,6 +117,7 @@ const Hero = () => {
               animate={{
                 y: [0, -10, 0],
               }}
+              
               transition={{
                 y: {
                   duration: 3,
