@@ -7,11 +7,15 @@ const Skills = () => {
   const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.classList.add('show');
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.showPhotography) {
+      window.showPhotography();
     }
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   };
 
   const skills = [

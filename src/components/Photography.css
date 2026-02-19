@@ -3,39 +3,6 @@
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
   position: relative;
   overflow: hidden;
-  display: none;
-}
-
-.photography.show {
-  display: block;
-}
-
-.gallery-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.gallery-close-btn {
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  color: white;
-  font-size: 32px;
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.gallery-close-btn:hover {
-  background: rgba(255, 255, 255, 0.4);
-  border-color: white;
-  transform: scale(1.1);
 }
 
 .gallery-grid {
@@ -104,6 +71,34 @@
 .photo-overlay p {
   color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.gallery-close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.gallery-close-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: white;
+  transform: scale(1.1);
 }
 
 .lightbox {
@@ -198,26 +193,6 @@
 
 .next-btn {
   right: 20px;
-}
-
-.photo-info {
-  display: none;
-}
-
-.photo-info h3 {
-  margin: 0 0 5px 0;
-  font-size: 20px;
-}
-
-.photo-info p {
-  margin: 0 0 8px 0;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.photo-counter {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
 }
 
 @media screen and (max-width: 768px) {

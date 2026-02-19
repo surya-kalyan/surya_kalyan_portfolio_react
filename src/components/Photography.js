@@ -32,15 +32,8 @@ const Photography = () => {
   }, [selectedPhoto, currentIndex]);
 
   useEffect(() => {
-    const element = document.getElementById('photography');
-    if (element) {
-      if (showGallery) {
-        element.classList.add('show');
-      } else {
-        element.classList.remove('show');
-      }
-    }
-  }, [showGallery]);
+    window.showPhotography = () => setShowGallery(true);
+  }, []);
 
   const closeGallery = () => {
     setShowGallery(false);
@@ -90,14 +83,16 @@ const Photography = () => {
     }
   };
 
+  if (!showGallery) return null;
+
   return (
-    <section id="photography" className="photography" ref={null}>
+    <section id="photography" className="photography">
       <div className="container">
         <div className="gallery-header">
           <motion.h2 
             className="section-title"
             initial={{ opacity: 0, y: 20 }}
-            animate={showGallery ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             Photography Gallery
@@ -107,7 +102,7 @@ const Photography = () => {
         <motion.p 
           className="about-text"
           initial={{ opacity: 0, y: 20 }}
-          animate={showGallery ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           A collection of my photography and videography work across various genres.
@@ -117,7 +112,7 @@ const Photography = () => {
           className="gallery-grid"
           variants={containerVariants}
           initial="hidden"
-          animate={showGallery ? "visible" : "hidden"}
+          animate="visible"
         >
           {photos.map((photo, index) => (
             <motion.div
