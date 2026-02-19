@@ -6,6 +6,13 @@ import './Skills.css';
 const Skills = () => {
   const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const skills = [
     { 
       icon: (
@@ -205,17 +212,15 @@ const Skills = () => {
                     {skill.list}
                   </motion.p>
                   {skill.hasButton && (
-                    <motion.a
-                      href="https://www.instagram.com/surya_kalyan_photography/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <motion.button
                       className="view-photos-btn"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      style={{ marginTop: '12px', display: 'inline-block' }}
+                      onClick={() => scrollToSection('photography')}
+                      style={{ marginTop: '12px' }}
                     >
                       View Photos
-                    </motion.a>
+                    </motion.button>
                   )}
                 </motion.div>
               ))}

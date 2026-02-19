@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './Photography.css';
@@ -6,6 +6,7 @@ import './Photography.css';
 const Photography = () => {
   const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(null);
 
   const photos = [
     { id: 1, title: 'Portrait', image: '/photography/photo_1.jpg', category: 'Portrait' },
@@ -19,6 +20,34 @@ const Photography = () => {
     { id: 9, title: 'Perspective', image: '/photography/20250919_085329.jpg', category: 'Perspective' },
     { id: 10, title: 'Golden Hour', image: '/photography/20251120_135913.jpg', category: 'Golden Hour' },
   ];
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!selectedPhoto) return;
+      if (e.key === 'Escape') setSelectedPhoto(null);
+      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === 'ArrowLeft') handlePrev();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedPhoto, currentIndex]);
+
+  const openPhoto = (photo, index) => {
+    setSelectedPhoto(photo);
+    setCurrentIndex(index);
+  };
+
+  const handleNext = () => {
+    const nextIndex = (currentIndex + 1) % photos.length;
+    setSelectedPhoto(photos[nextIndex]);
+    setCurrentIndex(nextIndex);
+  };
+
+  const handlePrev = () => {
+    const prevIndex = (currentIndex - 1 + photos.length) % photos.length;
+    setSelectedPhoto(photos[prevIndex]);
+    setCurrentIndex(prevIndex);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -66,13 +95,13 @@ const Photography = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          {photos.map((photo) => (
+          {photos.map((photo, index) => (
             <motion.div
               key={photo.id}
               className="gallery-item"
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
-              onClick={() => setSelectedPhoto(photo)}
+              onClick={() => openPhoto(photo, index)}
             >
               <img src={photo.image} alt={photo.title} />
               <div className="photo-overlay">
@@ -98,6 +127,13 @@ const Photography = () => {
             >
               <img src={selectedPhoto.image} alt={selectedPhoto.title} />
               <button className="close-btn" onClick={() => setSelectedPhoto(null)}>×</button>
+              <button className="nav-btn prev-btn" onClick={handlePrev}>❮</button>
+              <button className="nav-btn next-btn" onClick={handleNext}>❯</button>
+              <div className="photo-info">
+                <h3>{selectedPhoto.title}</h3>
+                <p>{selectedPhoto.category}</p>
+                <span className="photo-counter">{currentIndex + 1} / {photos.length}</span>
+              </div>
             </motion.div>
           </motion.div>
         )}
