@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import './Photography.css';
 
 const Photography = () => {
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [selectedPhoto, setSelectedPhoto] = useState(null); 
   const [currentIndex, setCurrentIndex] = useState(null);
   const [showGallery, setShowGallery] = useState(false);
 
