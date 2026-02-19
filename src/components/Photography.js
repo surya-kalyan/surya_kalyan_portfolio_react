@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import './Photography.css';
 
 const Photography = () => {
-  const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: false });
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [showGallery, setShowGallery] = useState(false);
@@ -34,17 +32,18 @@ const Photography = () => {
   }, [selectedPhoto, currentIndex]);
 
   useEffect(() => {
-    if (inView) {
-      setShowGallery(true);
+    const element = document.getElementById('photography');
+    if (element) {
+      if (showGallery) {
+        element.classList.add('show');
+      } else {
+        element.classList.remove('show');
+      }
     }
-  }, [inView]);
+  }, [showGallery]);
 
   const closeGallery = () => {
     setShowGallery(false);
-    const element = document.getElementById('photography');
-    if (element) {
-      element.classList.remove('show');
-    }
   };
 
   const openPhoto = (photo, index) => {
@@ -92,7 +91,7 @@ const Photography = () => {
   };
 
   return (
-    <section id="photography" className={`photography ${showGallery ? 'show' : ''}`} ref={ref}>
+    <section id="photography" className="photography" ref={null}>
       <div className="container">
         <div className="gallery-header">
           <motion.h2 
