@@ -6,17 +6,7 @@ import './Skills.css';
 const Skills = () => {
   const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
 
-  const scrollToSection = (sectionId) => {
-    if (window.showPhotography) {
-      window.showPhotography();
-    }
-    setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 100);
-  };
+
 
   const skills = [
     { 
@@ -99,17 +89,7 @@ const Skills = () => {
       list: 'Team Leadership, Communication, Problem Solving',
       color: '#e91e63'
     },
-    { 
-      icon: (
-        <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
-          <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-        </svg>
-      ), 
-      title: 'Photography', 
-      list: 'Portrait, Landscape, Event Photography',
-      color: '#ff1744',
-      hasButton: true
-    }
+
   ];
 
   const containerVariants = {
@@ -216,17 +196,7 @@ const Skills = () => {
                   >
                     {skill.list}
                   </motion.p>
-                  {skill.hasButton && (
-                    <motion.button
-                      className="view-photos-btn"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => scrollToSection('photography')}
-                      style={{ marginTop: '12px' }}
-                    >
-                      View Photos
-                    </motion.button>
-                  )}
+
                 </motion.div>
               ))}
             </div>

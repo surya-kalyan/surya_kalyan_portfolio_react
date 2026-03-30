@@ -7,7 +7,6 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
-import Photography from './components/Photography';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -25,7 +24,6 @@ function App() {
       <Projects />
       <Education />
       <Certifications />
-      <Photography />
       <Contact />
       <Footer />
     </div>
