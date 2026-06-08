@@ -140,6 +140,24 @@ const Certifications = () => {
                     <span className="cert-value">{selectedCert.year}</span>
                   </div>
                 </div>
+                {selectedCert.pdf && (
+                  <div className="cert-pdf-viewer">
+                    <iframe
+                      src={`/certificates/${selectedCert.pdf}`}
+                      title={selectedCert.title}
+                      className="pdf-iframe"
+                    />
+                  </div>
+                )}
+                {selectedCert.pdf && (
+                  <a 
+                    href={`/certificates/${selectedCert.pdf}`}
+                    download
+                    className="cert-download-btn"
+                  >
+                    Download Certificate
+                  </a>
+                )}
               </div>
             </motion.div>
           </>
