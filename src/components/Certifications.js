@@ -1,10 +1,11 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './Certifications.css';
 
 const Certifications = () => {
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
+  const [selectedCert, setSelectedCert] = useState(null);
 
   const certifications = [
     { title: 'AI Tools Certification', issuer: 'BE10x', year: '2025' },
@@ -42,6 +43,26 @@ const Certifications = () => {
     }
   };
 
+  const modalVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.3 }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.8,
+      transition: { duration: 0.3 }
+    }
+  };
+
+  const backdropVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    exit: { opacity: 0 }
+  };
+
   return (
     <section id="certifications" className="certifications" ref={ref}>
       <div className="container">
@@ -65,8 +86,11 @@ const Certifications = () => {
                 variants={cardVariants}
                 whileHover={{ 
                   y: -10,
-                  boxShadow: "0 10px 25px rgba(255, 0, 89, 0.2)"
+                  boxShadow: "0 10px 25px rgba(255, 0, 89, 0.2)",
+                  cursor: "pointer"
                 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setSelectedCert(cert)}
                 transition={{ duration: 0.3 }}
               >
                 <h3 className="certification-title">{cert.title}</h3>
@@ -79,6 +103,48 @@ const Certifications = () => {
           </div>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {selectedCert && (
+          <>
+            <motion.div
+              className="modal-backdrop"
+              variants={backdropVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              onClick={() => setSelectedCert(null)}
+            />
+            <motion.div
+              className="cert-modal"
+              variants={modalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <button 
+                className="modal-close"
+                onClick={() => setSelectedCert(null)}
+              >
+                ✕
+              </button>
+              <div className="cert-modal-content">
+                <h2>{selectedCert.title}</h2>
+                <div className="cert-details">
+                  <div className="cert-detail-item">
+                    <span className="cert-label">Issuer:</span>
+                    <span className="cert-value">{selectedCert.issuer}</span>
+                  </div>
+                  <div className="cert-detail-item">
+                    <span className="cert-label">Year:</span>
+                    <span className="cert-value">{selectedCert.year}</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
