@@ -141,22 +141,27 @@ const Certifications = () => {
                   </div>
                 </div>
                 {selectedCert.pdf && (
-                  <div className="cert-pdf-viewer">
-                    <iframe
-                      src={`/certificates/${selectedCert.pdf}`}
-                      title={selectedCert.title}
-                      className="pdf-iframe"
-                    />
+                  <div className="cert-pdf-section">
+                    <p className="cert-pdf-icon">📄</p>
+                    <p className="cert-pdf-name">{selectedCert.pdf}</p>
+                    <a 
+                      href={`/certificates/${selectedCert.pdf}`}
+                      download
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cert-download-btn"
+                    >
+                      📥 Download Certificate
+                    </a>
+                    <a 
+                      href={`/certificates/${selectedCert.pdf}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cert-view-btn"
+                    >
+                      👁️ View PDF
+                    </a>
                   </div>
-                )}
-                {selectedCert.pdf && (
-                  <a 
-                    href={`/certificates/${selectedCert.pdf}`}
-                    download
-                    className="cert-download-btn"
-                  >
-                    Download Certificate
-                  </a>
                 )}
                 {!selectedCert.pdf && (
                   <p className="cert-no-pdf">Certificate PDF not available yet</p>

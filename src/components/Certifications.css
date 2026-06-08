@@ -136,6 +136,7 @@
   border: none;
   cursor: pointer;
   font-size: 14px;
+  margin-right: 10px;
 }
 
 .cert-download-btn:hover {
@@ -145,6 +146,51 @@
 
 .cert-download-btn:active {
   transform: translateY(0);
+}
+
+.cert-view-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cert-view-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+}
+
+.cert-view-btn:active {
+  transform: translateY(0);
+}
+
+.cert-pdf-section {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 0, 89, 0.05);
+  border: 1px solid rgba(255, 0, 89, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.cert-pdf-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.cert-pdf-name {
+  color: #bbbbbb;
+  font-size: 12px;
+  margin-bottom: 15px;
+  word-break: break-all;
 }
 
 .cert-no-pdf {
