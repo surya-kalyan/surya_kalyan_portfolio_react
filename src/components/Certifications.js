@@ -8,20 +8,20 @@ const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState(null);
 
   const certifications = [
-    { title: 'AI Tools Certification', issuer: 'BE10x', year: '2025' },
-    { title: 'Microsoft Power BI Certification', issuer: 'Certify TN', year: '2025' },
-    { title: 'MongoDB Atlas', issuer: 'MongoDB', year: '2024' },
-    { title: 'Database Workloads', issuer: 'MongoDB', year: '2024' },
-    { title: 'MongoDB Basics for Students', issuer: 'MongoDB', year: '2025' },
-    { title: 'Python Programming Fundamentals', issuer: 'Infosys Springboard', year: '2024' },
-    { title: 'Introduction to Data Science', issuer: 'Infosys Springboard', year: '2026' },
-    { title: 'Introduction to Natural Language Processing', issuer: 'Infosys Springboard', year: '2026' },
-    { title: 'Introduction to Artificial Intelligence', issuer: 'Infosys Springboard', year: '2026' },
-    { title: 'Introduction to Deep Learning', issuer: 'Infosys Springboard', year: '2026' },
-    { title: 'Computer Vision 101', issuer: 'Infosys Springboard', year: '2026' },
-    { title: 'Introduction to Robotic Process Automation', issuer: 'Infosys Springboard', year: '2026' },
-    { title: 'Introduction to OpenAI GPT Models', issuer: 'Infosys Springboard', year: '2026' },
-    { title: 'OpenAI Generative Pre-trained Transformer 3 (GPT-3) for Developers', issuer: 'Infosys Springboard', year: '2026' }
+    { title: 'AI Tools Certification', issuer: 'BE10x', year: '2025', pdf: null },
+    { title: 'Microsoft Power BI Certification', issuer: 'Certify TN', year: '2025', pdf: null },
+    { title: 'MongoDB Atlas', issuer: 'MongoDB', year: '2024', pdf: null },
+    { title: 'Database Workloads', issuer: 'MongoDB', year: '2024', pdf: null },
+    { title: 'MongoDB Basics for Students', issuer: 'MongoDB', year: '2025', pdf: 'Mongodb basics.pdf' },
+    { title: 'Python Programming Fundamentals', issuer: 'Infosys Springboard', year: '2024', pdf: null },
+    { title: 'Introduction to Data Science', issuer: 'Infosys Springboard', year: '2026', pdf: '855e329c-1ecb-4baf-b03d-3c296d41ab04.pdf' },
+    { title: 'Introduction to Natural Language Processing', issuer: 'Infosys Springboard', year: '2026', pdf: null },
+    { title: 'Introduction to Artificial Intelligence', issuer: 'Infosys Springboard', year: '2026', pdf: '2157e62a-7a8b-4492-a707-8e7840ba6c3a.pdf' },
+    { title: 'Introduction to Deep Learning', issuer: 'Infosys Springboard', year: '2026', pdf: '0b3bf036-01a8-49c8-a76b-9089545aa7b2.pdf' },
+    { title: 'Computer Vision 101', issuer: 'Infosys Springboard', year: '2026', pdf: 'f70d3fe4-23f6-4602-bbf6-03b9c72ce585.pdf' },
+    { title: 'Introduction to Robotic Process Automation', issuer: 'Infosys Springboard', year: '2026', pdf: '47976e85-efee-4c6b-9555-e31d148f2dd1.pdf' },
+    { title: 'Introduction to OpenAI GPT Models', issuer: 'Infosys Springboard', year: '2026', pdf: '2100f919-380c-4562-b5f5-11c65022911f.pdf' },
+    { title: 'OpenAI Generative Pre-trained Transformer 3 (GPT-3) for Developers', issuer: 'Infosys Springboard', year: '2026', pdf: '48012300-b130-4307-b5cd-0ec212596cd0.pdf' }
   ];
 
   const containerVariants = {
@@ -157,6 +157,9 @@ const Certifications = () => {
                   >
                     Download Certificate
                   </a>
+                )}
+                {!selectedCert.pdf && (
+                  <p className="cert-no-pdf">Certificate PDF not available yet</p>
                 )}
               </div>
             </motion.div>
