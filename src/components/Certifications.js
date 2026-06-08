@@ -10,7 +10,17 @@ const Certifications = () => {
     { title: 'AI Tools Certification', issuer: 'BE10x', year: '2025' },
     { title: 'Microsoft Power BI Certification', issuer: 'Certify TN', year: '2025' },
     { title: 'MongoDB Atlas', issuer: 'MongoDB', year: '2024' },
-    { title: 'Database Workloads', issuer: 'MongoDB', year: '2024' }
+    { title: 'Database Workloads', issuer: 'MongoDB', year: '2024' },
+    { title: 'MongoDB Basics for Students', issuer: 'MongoDB', year: '2025' },
+    { title: 'Python Programming Fundamentals', issuer: 'Infosys Springboard', year: '2024' },
+    { title: 'Introduction to Data Science', issuer: 'Infosys Springboard', year: '2026' },
+    { title: 'Introduction to Natural Language Processing', issuer: 'Infosys Springboard', year: '2026' },
+    { title: 'Introduction to Artificial Intelligence', issuer: 'Infosys Springboard', year: '2026' },
+    { title: 'Introduction to Deep Learning', issuer: 'Infosys Springboard', year: '2026' },
+    { title: 'Computer Vision 101', issuer: 'Infosys Springboard', year: '2026' },
+    { title: 'Introduction to Robotic Process Automation', issuer: 'Infosys Springboard', year: '2026' },
+    { title: 'Introduction to OpenAI GPT Models', issuer: 'Infosys Springboard', year: '2026' },
+    { title: 'OpenAI Generative Pre-trained Transformer 3 (GPT-3) for Developers', issuer: 'Infosys Springboard', year: '2026' }
   ];
 
   const containerVariants = {
